@@ -1,0 +1,11 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+sqlalchemy==2.0.23
+psycopg[binary]==3.1.13
+pydantic==2.9.0
+pydantic-settings==2.5.2
+python-dotenv==1.0.0
+nats-py==2.6.0
+prometheus-client==0.19.0
+PyJWT==2.8.0
+cryptography==41.0.7
