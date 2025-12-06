@@ -9,7 +9,7 @@ class NATSClient:
         
     async def connect(self):
         self.nc = await nats.connect(settings.nats_url)
-        print(f"✓ Connected to NATS at {settings.nats_url}")
+        print(f"Connected to NATS at {settings.nats_url}")
         
     async def close(self):
         if self.nc:

@@ -16,7 +16,7 @@ nats_client = NATSClient()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("🚀 Starting User Service...")
+    print("Starting User Service...")
     init_db()
     await nats_client.connect()
     
