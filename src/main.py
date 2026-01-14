@@ -4,13 +4,13 @@ import uvicorn
 
 from src.database import init_db
 from src.nats_client import NATSClient
+from prometheus_fastapi_instrumentator import Instrumentator
 from src.handlers import (
     handle_get_user,
     handle_create_user,
     handle_update_user,
-    handle_list_users
+    handle_list_users,
 )
-from prometheus_client import make_asgi_app
 
 nats_client = NATSClient()
 
@@ -33,13 +33,11 @@ async def lifespan(app: FastAPI):
     await nats_client.close()
 
 app = FastAPI(title="User Service", lifespan=lifespan)
+Instrumentator().instrument(app).expose(app)
 
 @app.get("/health")
 async def health():
     return {"status": "healthy", "service": "user-service"}
-
-metrics_app = make_asgi_app()
-app.mount("/metrics", metrics_app)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8001)
