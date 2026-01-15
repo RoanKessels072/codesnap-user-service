@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+
 from contextlib import asynccontextmanager
 import uvicorn
 
@@ -33,6 +34,8 @@ async def lifespan(app: FastAPI):
     await nats_client.close()
 
 app = FastAPI(title="User Service", lifespan=lifespan)
+
+# Prometheus metrics
 Instrumentator().instrument(app).expose(app)
 
 @app.get("/health")
