@@ -10,6 +10,8 @@ class Settings(BaseSettings):
     
     service_name: str = "user-service"
     port: int = 8001
+    logfire_token: str | None = None
+    logfire_service_name: str | None = None
     
     class Config:
         env_file = ".env"
