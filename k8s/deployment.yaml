@@ -14,10 +14,12 @@ spec:
       labels:
         app: user-service
     spec:
+      imagePullSecrets:
+        - name: ecr-secret
       containers:
         - name: user-service
-          image: roankessels072/codesnap-user-service:latest
-          imagePullPolicy: Never
+          image: 239861161036.dkr.ecr.eu-central-1.amazonaws.com/codesnap/user-service:v1
+          imagePullPolicy: Always
           ports:
             - containerPort: 8001
           env:
@@ -39,4 +41,4 @@ spec:
               memory: "128Mi"
             limits:
               cpu: "500m"
-              memory: "512Mi"
+              memory: "256Mi"
