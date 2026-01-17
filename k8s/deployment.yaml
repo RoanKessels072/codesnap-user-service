@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: roankessels/codesnap-user-service:latest
+          image: roankessels/codesnap-user-service:39b53ebaa9516957431a9867e7eff4b44732ebe9
           imagePullPolicy: Always
           ports:
             - containerPort: 8001
