@@ -18,7 +18,7 @@ spec:
         - name: ecr-secret
       containers:
         - name: user-service
-          image: 239861161036.dkr.ecr.eu-central-1.amazonaws.com/codesnap/user-service:v1
+          image: 239861161036.dkr.ecr.eu-central-1.amazonaws.com/codesnap/user-service:v2
           imagePullPolicy: Always
           ports:
             - containerPort: 8001
